@@ -1,0 +1,23 @@
+{
+  "name": "backend-lojinha-campanha",
+  "version": "1.0.0",
+  "description": "Backend em node.js com conexão em banco de dados para gerenciamento de estoque da lojinha da Campanha",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunamata/backend-lojinha-campanha.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunamata/backend-lojinha-campanha/issues"
+  },
+  "homepage": "https://github.com/brunamata/backend-lojinha-campanha#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
