@@ -6,6 +6,7 @@ const routes = require('../routes/routes');
 const PORT = 3002;
 const mongoDB = "mongodb+srv://floquinho:campanhusp_2024@backend.ih9lomr.mongodb.net/LojinhaCampanha?retryWrites=true&w=majority&appName=Backend";
 
+
 const app = express();
 
 app.use(routes);
