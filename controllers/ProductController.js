@@ -33,7 +33,7 @@ class ProductController {
             const allProducts = await ProductService.findAll();
 
             if(!allProducts){
-                res.status(500).json({busca: "Erro na busca dos produtos"})
+                res.status(404).json({busca: "Erro na busca dos produtos"})
             }
 
             res.status(200).json(allProducts);
