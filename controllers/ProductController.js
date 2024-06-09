@@ -16,14 +16,12 @@ class ProductController {
             const product = await ProductService.create(req.body);
 
             if(!product){
-                console.log("erro ao criar novo produto.");
                 res.status(500).json({criacao: "erro ao criar produto novo."})
             }
 
             res.status(200).json(product);
         }
         catch(error) {
-            console.log(error)
             res.status(500).json({message: error.message});
         }
     } 
@@ -35,14 +33,12 @@ class ProductController {
             const allProducts = await ProductService.findAll();
 
             if(!allProducts){
-                console.log("Erro na busca dos produtos");
                 res.status(500).json({busca: "Erro na busca dos produtos"})
             }
 
             res.status(200).json(allProducts);
         }
         catch(error) {
-            console.log(error)
             res.status(500).json({message: error.message});
         }
     } 
@@ -56,14 +52,12 @@ class ProductController {
             const product = await ProductService.updateProduct(req.body);
 
             if(!product){
-                console.log("Erro na atualização do produto");
                 res.status(500).json({busca: "Erro na atualização do produto"})
             }
 
             res.status(200).json(product);
         }
         catch(error) {
-            console.log(error)
             res.status(500).json({message: error.message});
         }
     } 
@@ -90,7 +84,6 @@ class ProductController {
             res.status(200).json({message: returnMessage});
         }
         catch(error) {
-            console.log(error)
             res.status(500).json({message: error.message});
         }
     } 

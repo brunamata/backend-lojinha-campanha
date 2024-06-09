@@ -19,6 +19,8 @@
   "homepage": "https://github.com/brunamata/backend-lojinha-campanha#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "mongoose": "^8.4.1"
+    "moment-timezone": "^0.5.45",
+    "mongoose": "^8.4.1",
+    "yup": "^1.4.0"
   }
 }
