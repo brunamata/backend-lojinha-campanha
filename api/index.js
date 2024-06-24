@@ -1,11 +1,10 @@
 const express = require("express");
-const bodyParser = require('body-parser');
+const dotenv = require("dotenv");
 const mongoose = require('mongoose');
 const routes = require('../routes/routes');
 
-const PORT = 3002;
-const mongoDB = "mongodb+srv://floquinho:campanhusp_2024@backend.ih9lomr.mongodb.net/LojinhaCampanha?retryWrites=true&w=majority&appName=Backend";
-
+const PORT = process.env.PORT;
+const mongoDB = process.env.MONGO_DB_URL;
 
 const app = express();
 

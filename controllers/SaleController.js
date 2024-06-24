@@ -1,5 +1,6 @@
 const SaleService = require("../services/SaleService");
 const SaleValidator = require("../validators/SaleValidator");
+const SaleUtils = require("../utils/SaleUtils");
 
 class SaleController {
 
@@ -33,6 +34,8 @@ class SaleController {
             if(!newSale){
                 res.status(500).json({criação: "Erro na criação da vendas"})
             }
+
+            await SaleUtils.updateProducts(sale);
 
             res.status(200).json(newSale);
         }

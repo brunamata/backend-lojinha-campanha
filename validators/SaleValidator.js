@@ -21,6 +21,7 @@ class SaleValidator {
         }
 
         this.#validatePrice(products, sale.preco_total);
+        await this.#validateAmount(products);
 
 
     }
@@ -56,6 +57,34 @@ class SaleValidator {
 
         if (calculed_total_price != total_price) {
             throw new LojinhaException("O preço total não coincide com as quantidades individuais dos produtos", 400);
+        }
+
+    }
+
+    static async #validateAmount(products) {
+
+        for (const product of products) {
+            const p = await ProductService.findOne(product.nome)
+
+            //validação para combo
+            if(p.eh_combo){
+                const p_products = p.combo_products;
+                for (const combo_product of p_products) {
+                    const pp = await ProductService.findOne(combo_product.nome)
+
+                    // se a quantidade que tem em estoque for menor do que o que eu quero comprar
+                    // quantidade de combos que quero * quantidade do produto que vem no combo
+                    if(pp.quantidade_estoque < product.quantidade * combo_product.quantidade) {
+                        throw new LojinhaException(`Não há quantidades suficientes de [${product.nome}] em estoque. O produto [${pp.nome}] tem estoque = ${pp.quantidade_estoque}`);
+                    }
+                }
+            }
+            // validação para produto comum
+            else {
+                if (p.quantidade_estoque < product.quantidade){
+                    throw new LojinhaException(`Não há quantidades suficientes de [${product.nome}] em estoque (em estoque = ${p.quantidade_estoque})`);
+                }
+            }
         }
 
     }
