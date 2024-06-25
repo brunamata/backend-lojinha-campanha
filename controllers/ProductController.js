@@ -8,11 +8,16 @@ class ProductController {
 
         try{
 
-            const ehCombo = req.body.eh_combo;
+            // console.log("fileee ", req.file);
+            console.log(req.body);
+
+            const ehCombo = !!req.body.eh_combo;
             const combo_products = req.body.combo_products;
+            // const imagem_url = req.file.path || ""; 
 
             ComboValidator.validateProduct(ehCombo, combo_products);
             
+            // const product = await ProductService.create({...req.body, imagem_url: imagem_url});
             const product = await ProductService.create(req.body);
 
             if(!product){

@@ -10,6 +10,7 @@ const ProductSchema = mongoose.Schema({
   descricao: { type: String, required: false },
   preco: { type: Number, required: true, min: 0 },
   quantidade_estoque: { type: Number, required: true, min: 0},
+  imagem_url: {type: String, required: false},
   eh_combo: { type: Boolean, required: true },
   combo_products: {type: [ComboProductSchema], required: false}
 });
