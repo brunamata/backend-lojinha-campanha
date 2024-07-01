@@ -6,7 +6,7 @@ class ComboValidator {
     static validateProduct(eh_combo, combo_products) {
         //valida se o combo tem produtos e se esses produtos existem na base
         if (eh_combo) {
-            if (!combo_products || combo_products == []) {
+            if (!combo_products || combo_products.length < 1) {
                 throw new LojinhaException("O combo precisa ter produtos", 400);
             } else {
                 for (const product of combo_products) {
