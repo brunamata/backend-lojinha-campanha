@@ -52,7 +52,7 @@ class ProductController {
 
         try{
 
-            ComboValidator.validateProduct(req.body.ehCombo, req.body.combo_products)
+            ComboValidator.validateProduct(req.body.eh_combo, req.body.combo_products)
             
             const product = await ProductService.updateProduct(req.body);
 

@@ -17,7 +17,7 @@ class ComboValidator {
             }
         } else {
             // só verifica se a pessoa colocou uma lista de produtos, mas esqueceu de marcar como combo
-            if (combo_products) {
+            if (combo_products.length >= 1) {
                 throw new LojinhaException("Combos precisam ser marcados como true em eh_combo. Altere se isso foi um erro.", 400)
             }
         }
