@@ -18,7 +18,8 @@ class ProductService {
     }
 
     static async updateProduct(product) {
-        const productUpdated = await ProductSchema.findOneAndUpdate({ nome: product.nome_antigo }, product);
+        const nomeSearch = product.nome_antigo? product.nome_antigo : product.nome;
+        const productUpdated = await ProductSchema.findOneAndUpdate({ nome: nomeSearch }, product);
         return productUpdated;
     }
 
